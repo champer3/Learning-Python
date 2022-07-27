@@ -1,5 +1,7 @@
-print("Hello world")
+def greet_user(name):
+    print(f"Hi there! {name}")
+    print("Welcome Aboard!")
 
-a = 2
-a = 10
-print(id(a))
+print("Start")
+greet_user("stephen")
+print('end')
