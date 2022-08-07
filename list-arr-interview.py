@@ -1,5 +1,7 @@
 # Some Array and List Interview Questions
 
+import numpy as np
+
 # Question 1 - Missing number in an array
 
 #  The idea is - The sum of consecutive numbers in n(n+1)/2
@@ -13,6 +15,46 @@ def findMissing(list, n):
     print(sum1-sum2)
 
 
-findMissing(myList, 9)
+# findMissing(myList, 9)
 
 # Qouestion 2 - Pair/Two Sum
+
+
+def twoSum(arr, t):
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            if arr[i] + arr[j] == t:
+                print([i, j])
+
+
+myList = [1, 2, 3, 2, 3, 4, 5, 8]
+# twoSum(myList, 6)
+
+# Question 3 - Check if an array contains a number in python
+
+myArray = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+
+def findNumber(arr, num):
+    for n in arr:
+        if n == num:
+            return True
+    return False
+
+
+# print(findNumber(myArray, 13))
+
+# Question 4 - Maximum product of two integers in an array
+newArray = np.array([21, 24, 63, 41, 25, 16, 27, 38, 91, 10, 33, 21, 99, 53])
+
+
+def findMaxProduct(arr):
+    maxProduct = 0
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            if (arr[i] * arr[j]) > maxProduct:
+                maxProduct = arr[i] * arr[j]
+    return maxProduct
+
+
+print(findMaxProduct(myArray))
