@@ -16,7 +16,7 @@ def findMissing(list, n):
     print(sum1-sum2)
 
 
-# findMissing(myList, 9)
+findMissing(myList, 9)
 
 # Qouestion 2 - Pair/Two Sum
 
@@ -29,7 +29,7 @@ def twoSum(arr, t):
 
 
 myList = [1, 2, 3, 2, 3, 4, 5, 8]
-# twoSum(myList, 6)
+twoSum(myList, 6)
 
 # Question 3 - Check if an array contains a number in python
 
@@ -43,7 +43,7 @@ def findNumber(arr, num):
     return False
 
 
-# print(findNumber(myArray, 13))
+print(findNumber(myArray, 13))
 
 # Question 4 - Maximum product of two integers in an array
 newArray = np.array([21, 24, 63, 41, 25, 16, 27, 38, 91, 10, 33, 21, 99, 53])
@@ -58,7 +58,7 @@ def findMaxProduct(arr):
     return maxProduct
 
 
-# print(findMaxProduct(myArray))
+print(findMaxProduct(myArray))
 
 # Question 4 - Is Unique: Impliment an algorithm to see if a list has all unique characters
 
@@ -71,7 +71,8 @@ def isUnique(arr):
     return True
 
 
-# print(isUnique(myArray))
+print(isUnique(myArray))
+
 
 def isUnique1(arr):
     newList = []
@@ -85,7 +86,7 @@ def isUnique1(arr):
     return True
 
 
-# print(isUnique1(myArray))
+print(isUnique1(myArray))
 
 # Question 6 - Permutation
 
@@ -116,4 +117,6 @@ def isPermutation1(arr1, arr2):
         return False
 
 
-print(isPermutation1(myArr1, myArr2))
+# print(isPermutation1(myArr1, myArr2))
+multiArray = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(hash(110))
