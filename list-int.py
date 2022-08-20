@@ -3,6 +3,7 @@
 
 # Solution 1 - BRUTE FORCE
 from collections import Counter
+from operator import indexOf
 
 
 def containsDuplicate(nums):
@@ -94,3 +95,33 @@ def isAnagram(s, t):
         return True
     else:
         return False
+
+# Question 3 - Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target
+
+# Solution 1 - BRUTE FORCE
+
+
+def twoSum(nums, target):
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+
+
+def twoSum(nums, target):
+    countNums = {}
+    for i in range(len(nums)):
+        diff = target - nums[i]
+        if diff in countNums:
+            return [countNums[diff], i]
+        else:
+            countNums[nums[i]] = i
+
+
+def camelcase(s):
+    # Write your code here
+    num = 1
+    for c in s:
+        if c == c.upper():
+            num = num + 1
+    return num
