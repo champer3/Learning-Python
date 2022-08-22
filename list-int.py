@@ -2,7 +2,8 @@
 # and return false if every element is distinct.
 
 # Solution 1 - BRUTE FORCE
-from collections import Counter
+from collections import Counter, defaultdict
+from email.policy import default
 from operator import indexOf
 
 
@@ -80,12 +81,6 @@ def isAnagram1(s, t):
     return Counter(s) == Counter(t)
 
 
-s = "anagram"
-t = "nagaram"
-print(sorted(s))
-isAnagram1(s, t)
-
-
 # Solution 2 - SORT ALGORITHM o(nlogn)
 
 def isAnagram(s, t):
@@ -125,3 +120,45 @@ def camelcase(s):
         if c == c.upper():
             num = num + 1
     return num
+
+
+def groupAnagrams(strs):
+    arr = []
+    count = {}
+    for el in strs:
+        sortt = "".join(sorted(el))
+        arr.append(sortt)
+    for i in range(len(arr)):
+        if arr[i] == "".join(sorted(strs[i])):
+            count[strs[i]] = 1 + count.get(strs[i], 0)
+    return count
+
+# Question 4 - Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+# Solution 1 - Hashmap with sort fuction o(m.nlogn)
+
+
+def groupAnagrams(strs):
+    countS = {}
+    for s in strs:
+        key = "".join(sorted(s))
+        if key in countS:
+            countS[key].append(s)
+        if not key in countS:
+            countS[key] = []
+            countS[key].append(s)
+    return countS.values()
+
+
+def groupAnagrams1(strs):
+    res = defaultdict(list)
+    for s in strs:
+        count = [0] * 26
+        for c in s:
+            count[ord(c) - ord("a")] += 1
+        res[tuple(count)].append(s)
+    return res.values()
+
+
+strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+print(groupAnagrams(strs))
