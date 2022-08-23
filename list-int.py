@@ -162,3 +162,24 @@ def groupAnagrams1(strs):
 
 strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
 print(groupAnagrams(strs))
+
+
+# Question 5 - Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+# Solution 1
+
+
+def topKFrequent(nums, k):
+    freq = defaultdict(int)
+    for num in nums:
+        freq[num] = freq[num] + 1 or 1
+    return freq
+
+
+nums = [1, 1, 1, 2, 2, 3]
+k = 2
+dict1 = topKFrequent(nums, k)
+print(dict1)
+
+sorted_values = sorted(dict1, reverse=True)
+print(sorted_values)
