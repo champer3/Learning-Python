@@ -28,8 +28,8 @@ def containsDuplicate1(nums):
 
 
 # Example nums1 = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2], [1, 2, 3, 1], [1,2,3,4]
-nums1 = [1, 2, 3, 1]
-print(containsDuplicate1(nums1))
+# nums1 = [1, 2, 3, 1]
+# print(containsDuplicate1(nums1))
 
 # Question 2 - Given two strings s and t, return true if t is an anagram of s, and false otherwise
 
@@ -160,8 +160,8 @@ def groupAnagrams1(strs):
     return res.values()
 
 
-strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-print(groupAnagrams(strs))
+# strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+# print(groupAnagrams(strs))
 
 
 # Question 5 - Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
@@ -171,15 +171,31 @@ print(groupAnagrams(strs))
 
 def topKFrequent(nums, k):
     freq = defaultdict(int)
+    sorted_dict = {}
     for num in nums:
         freq[num] = freq[num] + 1 or 1
-    return freq
+    sorted_keys = sorted(freq, key=freq.get, reverse=True)
+    for w in sorted_keys:
+        sorted_dict[w] = freq[w]
+    dict_values = list(sorted_dict.keys())
+    return dict_values[0:k]
 
 
-nums = [1, 1, 1, 2, 2, 3]
+# Solution 2
+
+
+def topKFrequent(nums, k):
+    freq = defaultdict(int)
+    sorted_dict = {}
+    for num in nums:
+        freq[num] = freq[num] + 1 or 1
+    sorted_keys = {k: v for k, v in sorted(
+        freq.items(), key=lambda v: v[1], reverse=True)}
+    dict_values = list(sorted_keys.keys())
+    return dict_values[0:k]
+
+
+nums = [1, 2]
 k = 2
 dict1 = topKFrequent(nums, k)
 print(dict1)
-
-sorted_values = sorted(dict1, reverse=True)
-print(sorted_values)
