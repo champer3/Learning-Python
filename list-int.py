@@ -4,6 +4,7 @@
 # Solution 1 - BRUTE FORCE
 from collections import Counter, defaultdict
 from email.policy import default
+from numbers import Number
 from operator import indexOf
 
 
@@ -195,7 +196,23 @@ def topKFrequent(nums, k):
     return dict_values[0:k]
 
 
-nums = [1, 2]
-k = 2
-dict1 = topKFrequent(nums, k)
-print(dict1)
+# nums = [1, 2]
+# k = 2
+# dict1 = topKFrequent(nums, k)
+# print(dict1)
+# a = 10
+# a = 3
+# a = a + 2
+# print(a)
+# print("st" ** 2)
+nums = [1, 2, 3, 4]
+post = []
+
+nums = nums[::-1]
+first = 1
+for i in range(len(nums)):
+    nums[i] = nums[i] * first
+    post.append(nums[i])
+    first = nums[i]
+
+print(post)
